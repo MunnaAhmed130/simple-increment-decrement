@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./rippleButton.css";
 
 const rippleButton = ({ children, onClick, className }) => {
     const [coords, setCoords] = useState({ x: -1, y: -1 });
