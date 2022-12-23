@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { COUNTER_CONTEXT } from "../App";
-import RippleButton from "./rippleButton";
+import RippleButton from "../component/rippleButton";
 
 const child = () => {
     const { count, setCount } = useContext(COUNTER_CONTEXT);
