@@ -1,7 +1,8 @@
 import { createContext, useState } from "react";
-import reactLogo from "./assets/react.svg";
 import Parent from "./pages/parent";
+import LongForm from "./pages/longForm";
 import ShortForm from "./pages/shortForm";
+import Counter from "./pages/counter";
 import "./App.css";
 
 export const COUNTER_CONTEXT = createContext();
@@ -13,7 +14,9 @@ function App() {
         <COUNTER_CONTEXT.Provider value={value}>
             <div className="App">
                 {/* <Parent /> */}
-                <ShortForm></ShortForm>
+                {/* <ShortForm /> */}
+                {/* <Counter /> */}
+                <LongForm />
             </div>
         </COUNTER_CONTEXT.Provider>
     );
