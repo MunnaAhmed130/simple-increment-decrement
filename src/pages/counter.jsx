@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import RippleButton from "../component/rippleButton";
+import "./counter.css";
 
 const counter = () => {
     const initialState = 0;

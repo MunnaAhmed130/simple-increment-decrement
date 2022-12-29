@@ -21,6 +21,7 @@ const rippleButton = ({ children, onClick, className }) => {
             // className="ripple-button"
             className={`ripple-button ${className}`}
             onClick={(e) => {
+                e.preventDefault();
                 const rect = e.target.getBoundingClientRect();
                 setCoords({
                     x: e.clientX - rect.left,

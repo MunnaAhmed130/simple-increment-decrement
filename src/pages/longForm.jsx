@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useReducer, useState } from "react";
 import RippleButton from "../component/rippleButton";
+import "./form.css";
 
 const longForm = () => {
+    // const initialState = 0;
+
+    // const reducer = (state, action) => {
+    //     if (action.type === "DECREMENT") {
+    //         return state - 1;
+    //     } else if (action.type === "INCREMENT") {
+    //         return state + 1;
+    //     }
+    // };
+
+    // const [state, dispatch] = useReducer(reducer, initialState);
+
+    const [counter, setCounter] = useState(0);
     return (
         <div className="form--container">
             <form className="form--long">
@@ -57,9 +71,24 @@ const longForm = () => {
                         </label>
                     </div>
                     <label for="">Number of PCs</label> <br />
-                    <RippleButton className="decrement"> - </RippleButton>
-                    <input type="number" name="" value="" />
-                    <RippleButton> + </RippleButton>
+                    <div className="counter">
+                        <RippleButton
+                            className="decrement"
+                            onClick={() =>
+                                setCounter((prevState) => prevState - 1)
+                            }
+                        >
+                            -
+                        </RippleButton>
+                        <div>{counter}</div>
+                        <RippleButton
+                            onClick={() =>
+                                setCounter((prevState) => prevState - 1)
+                            }
+                        >
+                            +
+                        </RippleButton>
+                    </div>
                 </div>
             </form>
         </div>
