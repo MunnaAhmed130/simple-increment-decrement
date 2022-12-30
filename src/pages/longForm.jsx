@@ -3,19 +3,19 @@ import RippleButton from "../component/rippleButton";
 import "./form.css";
 
 const longForm = () => {
-    // const initialState = 0;
+    const initialState = 0;
 
-    // const reducer = (state, action) => {
-    //     if (action.type === "DECREMENT") {
-    //         return state - 1;
-    //     } else if (action.type === "INCREMENT") {
-    //         return state + 1;
-    //     }
-    // };
+    const reducer = (state, action) => {
+        if (action.type === "DECREMENT") {
+            return state - 1;
+        } else if (action.type === "INCREMENT") {
+            return state + 1;
+        }
+    };
 
-    // const [state, dispatch] = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(reducer, initialState);
 
-    const [counter, setCounter] = useState(0);
+    // const [counter, setCounter] = useState(0);
     return (
         <div className="form--container">
             <form className="form--long">
@@ -72,7 +72,7 @@ const longForm = () => {
                     </div>
                     <label for="">Number of PCs</label> <br />
                     <div className="counter">
-                        <RippleButton
+                        {/* <RippleButton
                             className="decrement"
                             onClick={() =>
                                 setCounter((prevState) => prevState - 1)
@@ -80,11 +80,30 @@ const longForm = () => {
                         >
                             -
                         </RippleButton>
-                        <div>{counter}</div>
+                        <div>{state}</div>
                         <RippleButton
                             onClick={() =>
                                 setCounter((prevState) => prevState - 1)
                             }
+                        >
+                            +
+                        </RippleButton> */}
+
+                        <RippleButton
+                            className="decrement"
+                            onClick={(e) => {
+                                dispatch({ type: "DECREMENT" });
+                                e.preventDefault();
+                            }}
+                        >
+                            -
+                        </RippleButton>
+                        <span className="pc-count">{state}</span>
+                        <RippleButton
+                            onClick={(e) => {
+                                dispatch({ type: "INCREMENT" });
+                                e.preventDefault();
+                            }}
                         >
                             +
                         </RippleButton>

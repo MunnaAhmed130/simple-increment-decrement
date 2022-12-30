@@ -15,8 +15,8 @@ function App() {
             <div className="App">
                 {/* <Parent /> */}
                 {/* <ShortForm /> */}
-                <Counter />
-                {/* <LongForm /> */}
+                {/* <Counter /> */}
+                <LongForm />
             </div>
         </COUNTER_CONTEXT.Provider>
     );
