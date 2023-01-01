@@ -48,17 +48,17 @@
     box-shadow: 2px 2px 3px rgb(134, 134, 134);
 }
 
-button:hover {
+.container button:hover {
     box-shadow: 4px 4px 3px rgb(170, 170, 170);
 }
 
-button.increment {
+.container button.increment {
     background-color: rgba(115, 0, 255, 0.2);
     color: rgba(115, 0, 255, 0.5);
     font-weight: 500;
 }
 
-button.decrement {
+.container button.decrement {
     background-color: rgba(0, 212, 255, 0.4);
     color: rgba(0, 128, 255, 0.6);
     font-weight: 500;

@@ -49,7 +49,7 @@ const longForm = () => {
                     <label for="lastName">
                         Last Name <br />
                         <input type="text" name="lastName" id="lastName" />
-                    </label>{" "}
+                    </label>
                     <br />
                     <label>Gender</label>
                     <br />
@@ -100,6 +100,7 @@ const longForm = () => {
                         </RippleButton>
                         <span className="pc-count">{state}</span>
                         <RippleButton
+                            className="increment"
                             onClick={(e) => {
                                 dispatch({ type: "INCREMENT" });
                                 e.preventDefault();

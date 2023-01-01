@@ -1,19 +1,20 @@
 /* short form */
-form.form {
+.form--short {
     /* border: 1px solid black; */
     box-shadow: 1px 4px 0.5rem rgb(237, 237, 237);
     padding: 1rem;
 }
 
-.form label {
+.form--short label {
     color: rgb(97, 97, 97);
 }
 
-.form input {
+.form--short input {
     border: 1px solid rgba(219, 219, 219, 0.6);
     padding-block: 0.4rem;
     padding-inline: 0.5rem;
     width: 200px;
+    /* height: 2rem; */
     font-size: 1rem;
     color: rgba(0, 0, 0, 0.8);
     font-weight: 500;
@@ -23,7 +24,7 @@ input:focus-visible {
     outline: none;
 }
 
-.form button {
+.form--short button {
     background-color: rgba(41, 58, 213, 0.5);
     border: none;
     padding: 0.7rem 1rem;
@@ -47,8 +48,9 @@ input:focus-visible {
 /* long form */
 .form--container {
     /* border: 1px solid black; */
-    box-shadow: 2px 2px 5px rgb(153, 153, 153);
+    box-shadow: 2px 2px 10px rgb(228, 228, 228);
     padding: 2rem;
+    border-radius: 0.2rem;
 }
 
 .form--long {
@@ -59,24 +61,46 @@ input:focus-visible {
 }
 
 input[type="text"],
-input[type="email"] {
-    width: 15rem;
-    padding: 0.4rem;
-    margin-block: 0.5rem;
+input[type="email"],
+.pc-count,
+#edu-select {
+    line-height: 1.1;
     font-size: 1rem;
+    padding: 0.4rem;
+}
+
+input[type="text"],
+input[type="email"],
+.counter,
+.select__container {
+    margin-block: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+.select__container {
+    width: 15rem;
+    font-size: 1rem;
+    border: 1px solid black;
+}
+
+.pc-count {
+    display: inline;
+    line-height: 1.2;
+    /* margin-inline: 0.5rem; */
+    /* appearance: none; */
+    border: 1px solid black;
+    width: 10rem;
+    text-align: center;
 }
 
 /* customized select  */
 .select__container {
     width: 100%;
-    /* min-width: 15ch;
-    max-width: 30ch; */
-    border: 1px solid var(--select-border);
+    /* border: 1px solid var(--select-border); */
     border-radius: 0.1rem;
-    /* padding: 0.25em 0.5em; */
     font-size: 1.25rem;
     cursor: pointer;
-    /* line-height: 1.1; */
     background-color: #fff;
     background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
     /* ...existing styles */
@@ -91,16 +115,9 @@ select {
     appearance: none;
     /* Additional resets for further consistency */
     background-color: transparent;
+    line-height: 1rem;
     border: none;
-    padding: 0.5rem;
-    /* padding: 0 1em 0 0; */
-    /* margin: 0; */
     width: 100%;
-    /* font-family: inherit;
-    font-size: inherit;
-    cursor: inherit;
-    line-height: inherit; */
-    /* margin-block: 0.5rem; */
     /* ...existing styles */
     outline: none;
     grid-area: select;
@@ -222,11 +239,12 @@ input:checked ~ .checkmark {
     /* grid-template-columns: 1fr 9fr 1fr; */
 }
 
-.pc-count {
-    margin-inline: 1rem;
-    /* appearance: none; */
-    border: 1px solid black;
-    padding-block: 0.3rem;
-    width: 100%;
-    text-align: center;
+.counter button {
+    /* box-sizing: content-box; */
+    padding: 0.5rem;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 1rem;
+    background-color: rgb(93, 133, 240);
 }

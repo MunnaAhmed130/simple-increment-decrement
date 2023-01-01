@@ -10,7 +10,7 @@ const shortForm = () => {
 
     return (
         <div>
-            <form className="form" onSubmit={submit}>
+            <form className="form--short" onSubmit={submit}>
                 <div className="input-container">
                     <label htmlFor="name">Name</label> <br />
                     <input
