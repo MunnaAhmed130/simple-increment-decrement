@@ -12,7 +12,7 @@ function App() {
     const value = { count, setCount };
     return (
         <COUNTER_CONTEXT.Provider value={value}>
-            <div className="App">
+            <div className="app">
                 {/* <Parent /> */}
                 {/* <ShortForm /> */}
                 {/* <Counter /> */}

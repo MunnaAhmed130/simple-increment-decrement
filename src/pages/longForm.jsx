@@ -18,7 +18,13 @@ const longForm = () => {
     // const [counter, setCounter] = useState(0);
     return (
         <div className="form--container">
-            <form className="form--long">
+            <form
+                className="form--long"
+                // onSubmit={(e) => {
+                //     e.reset();
+                //     e.preventDefault();
+                // }}
+            >
                 <div className="row">
                     <label>
                         First Name <br />
@@ -102,8 +108,16 @@ const longForm = () => {
                         <textarea></textarea>
                     </label>
                 </div>
-                <div className="row">
-                    <RippleButton className="submit">Submit</RippleButton>
+                <div className="row row--last">
+                    <label class="checkbox__container">
+                        <input className="checkbox" type="checkbox" /> I agree
+                        to terms and conditions
+                        {/* <span class="checkmark"></span> */}
+                    </label>{" "}
+                    <br />
+                    <div className="btn__container">
+                        <RippleButton className="submit">Submit</RippleButton>
+                    </div>
                 </div>
                 {/* <div className="col"> */}
                 {/* <label>

@@ -39,12 +39,17 @@ body {
     padding: 0;
     background-color: white;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     height: 100vh;
     width: 100%;
 }
 
+@media screen and (min-width: 700px) {
+    body {
+        align-items: center;
+    }
+}
 h1 {
     font-size: 3.2em;
     line-height: 1.1;
