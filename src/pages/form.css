@@ -39,17 +39,9 @@ textarea:focus-visible {
     transition: 0.1s all ease-in;
 }
 
-.form button:hover {
-}
-
-.form button .ripple {
-    /* background-color: rgba(255, 255, 255, 0.3); */
-}
-
 /* long form */
 form {
     --btn-color: rgb(93, 133, 240);
-    --input-width: 18rem;
 }
 
 .form--container {
@@ -75,12 +67,11 @@ form {
     -webkit-text-fill-color: black;
 }
 
-/* input  */
+/* input row consistency */
 input[type="text"],
 input[type="email"],
 .counter,
-.select__container,
-.gender-options {
+.select__container {
     height: 2.5rem;
 }
 
@@ -91,13 +82,6 @@ textarea,
 #edu-select {
     font-size: 1rem;
     padding: 0.4rem;
-}
-
-.gender-options {
-    padding-top: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
 }
 
 input[type="text"],
@@ -118,15 +102,17 @@ input[type="email"],
 input[type="text"],
 input[type="email"],
 .select__container,
-.feedback {
-    width: clamp(15rem, 45.7143vw + 5.85714rem, 18rem);
+.counter,
+.feedback,
+textarea,
+.gender {
+    width: clamp(15rem, 87.2727vw + -2.45455rem, 18rem);
 }
 
 .pc-count {
     display: inline;
     border: 1px solid black;
-    /* width: 10rem; */
-    width: 50%;
+    width: 60%;
     text-align: center;
 }
 
@@ -146,14 +132,24 @@ textarea,
 }
 
 textarea {
-    width: 100%;
     height: 6rem;
     margin-top: 0.5rem;
 }
 
-/* customized select  */
-.select__container {
+.gender-options {
+    /* padding-top: 0.25rem; */
+    display: flex;
+    justify-content: space-between;
     /* width: 100%; */
+}
+
+.block,
+.gender {
+    display: block;
+}
+
+/* customized select Education option  */
+.select__container {
     border-radius: 0.1rem;
     font-size: 1.25rem;
     cursor: pointer;
@@ -174,7 +170,6 @@ select {
     line-height: 1.6rem;
     border: none;
     width: 100%;
-
     /* ...existing styles */
     outline: none;
     grid-area: select;
@@ -193,6 +188,7 @@ select:focus + .focus {
 select:focus .select__container::after {
     transform: rotate(130deg);
 }
+
 select::-ms-expand {
     display: none;
 }
@@ -220,13 +216,7 @@ input[type="radio"] {
     /* font-size: 2rem; */
 }
 
-/* checkmark */
-.gender,
-.pc_number {
-    width: 100%;
-}
-
-/* radio checkmark container */
+/* radio checkmark customization */
 .checkmark__container {
     display: inline-block;
     position: relative;
@@ -247,7 +237,7 @@ input[type="radio"] {
     cursor: pointer;
 }
 
-/* Create a custom radio button */
+/* create custom radio button */
 .checkmark {
     position: absolute;
     top: 0;
@@ -261,7 +251,7 @@ input[type="radio"] {
     /* margin-right: 0.5rem; */
 }
 
-/* When the radio button is checked, add a blue background */
+/*  add background if checked*/
 input:checked ~ .checkmark {
     /* --color: rgb(93, 133, 240); */
     background-color: var(--btn-color);
@@ -290,21 +280,6 @@ input:checked ~ .checkmark {
     background: white;
 }
 
-.checkbox__container {
-    /* line-height: 1.5rem; */
-    margin-top: 1rem;
-}
-
-.checkbox {
-    accent-color: var(--btn-color);
-    font-size: 2rem;
-    margin-left: 0;
-}
-
-.row--last {
-    /* justify-content: space-between; */
-}
-
 /* counter */
 .counter {
     display: flex;
@@ -321,6 +296,73 @@ input:checked ~ .checkmark {
     background-color: var(--btn-color);
 }
 
+/*  checkbox customization */
+.checkbox__container {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: clamp(0.875rem, 1.90476vw + 0.494048rem, 1rem);
+}
+
+/* Hide the browser's default checkbox */
+.checkbox__container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    /* font-size: 2rem; */
+    margin-left: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    outline: 1px solid var(--btn-color);
+    border: 1px solid var(--btn-color);
+    border-radius: 2px;
+}
+
+/* On mouse-over, add background color */
+.checkbox__container:hover input ~ .checkbox {
+    background-color: rgba(93, 132, 240, 0.3);
+}
+
+/* When the checkbox is checked, add background */
+.checkbox__container input:checked ~ .checkbox {
+    background-color: var(--btn-color);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox__container input:checked ~ .checkbox:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox__container .checkbox:after {
+    left: 6px;
+    top: 3px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
 .submit {
     font-size: 1rem;
     font-weight: 500;
@@ -332,6 +374,12 @@ input:checked ~ .checkmark {
     /* margin-inline: auto; */
 }
 
+.btn__container {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* media queries for viewport width bigger than 700px */
 @media screen and (min-width: 700px) {
     .form--container {
         margin-top: 0;
@@ -340,15 +388,18 @@ input:checked ~ .checkmark {
     .row {
         display: flex;
         flex-direction: row;
-        column-gap: 1rem;
+        column-gap: 2rem;
     }
 
     .row--last {
         justify-content: space-between;
     }
-}
-.btn__container {
-    /* margin-inline: auto; */
-    text-align: center;
-    margin-top: 1rem;
+
+    .gender-options {
+        padding-top: 0.25rem;
+    }
+    .gender,
+    .pc_number {
+        width: 100%;
+    }
 }

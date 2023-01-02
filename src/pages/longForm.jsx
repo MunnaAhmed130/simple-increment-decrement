@@ -30,8 +30,8 @@ const longForm = () => {
                         First Name <br />
                         <input type="text" name="firstName" id="firstName" />
                     </label>
-                    <br />
-                    <label for="lastName">
+                    {/* <br /> */}
+                    <label className="block">
                         Last Name <br />
                         <input type="text" name="lastName" id="lastName" />
                     </label>
@@ -42,7 +42,7 @@ const longForm = () => {
                         Email <br />
                         <input type="email" name="email" id="email" />
                     </label>{" "}
-                    <br />
+                    {/* <br /> */}
                     <div className="gender">
                         <label>Gender</label>
                         <br />
@@ -76,7 +76,7 @@ const longForm = () => {
                             <span class="focus"></span>
                         </div>
                     </label>
-                    <br />
+                    {/* <br /> */}
                     <label className="pc_number">
                         Number of PCs
                         <div className="counter">
@@ -110,9 +110,9 @@ const longForm = () => {
                 </div>
                 <div className="row row--last">
                     <label class="checkbox__container">
-                        <input className="checkbox" type="checkbox" /> I agree
-                        to terms and conditions
-                        {/* <span class="checkmark"></span> */}
+                        <input type="checkbox" /> I agree to terms and
+                        conditions
+                        <span class="checkbox"></span>
                     </label>{" "}
                     <br />
                     <div className="btn__container">
