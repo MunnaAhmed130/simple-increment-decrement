@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./rippleButton.css";
 
-const rippleButton = ({ children, onClick, className }) => {
+const rippleButton = ({ children, onClick, className, type }) => {
     const [coords, setCoords] = useState({ x: -1, y: -1 });
     const [isRippling, setIsRippling] = useState(false);
 
@@ -20,6 +20,7 @@ const rippleButton = ({ children, onClick, className }) => {
         <button
             // className="ripple-button"
             className={`ripple-button ${className}`}
+            type={`${type}`}
             onClick={(e) => {
                 // e.preventDefault();
                 const rect = e.target.getBoundingClientRect();

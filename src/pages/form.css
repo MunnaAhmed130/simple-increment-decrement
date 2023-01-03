@@ -175,6 +175,11 @@ select {
     grid-area: select;
 }
 
+.option-container {
+    /* height: 10rem; */
+    padding: 1rem;
+}
+
 select:focus + .focus {
     position: absolute;
     top: -1px;

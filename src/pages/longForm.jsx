@@ -70,8 +70,10 @@ const longForm = () => {
                         Education <br />
                         <div className="select__container">
                             <select name="" id="edu-select">
-                                <option value="ssc">SSC</option>
-                                <option value="hsc">HSC</option>
+                                <div className="option__container">
+                                    <option value="ssc">SSC</option>
+                                    <option value="hsc">HSC</option>
+                                </div>
                             </select>
                             <span class="focus"></span>
                         </div>

@@ -7,9 +7,9 @@ const counter = () => {
 
     const reducer = (state, action) => {
         if (action.type === "DECREMENT") {
-            return state - 1;
+            return state - action.payload;
         } else if (action.type === "INCREMENT") {
-            return state + 1;
+            return state + action.payload;
         }
     };
 
@@ -24,15 +24,38 @@ const counter = () => {
                     <div>
                         <RippleButton
                             className="decrement"
-                            onClick={() => dispatch({ type: "DECREMENT" })}
+                            onClick={() =>
+                                dispatch({
+                                    type: "DECREMENT",
+                                    payload: 1,
+                                })
+                            }
                         >
-                            Decrement
+                            - 1
+                        </RippleButton>
+                        <RippleButton
+                            className="decrement"
+                            onClick={() =>
+                                dispatch({ type: "DECREMENT", payload: 5 })
+                            }
+                        >
+                            - 5
                         </RippleButton>
                         <RippleButton
                             className="increment"
-                            onClick={() => dispatch({ type: "INCREMENT" })}
+                            onClick={() =>
+                                dispatch({ type: "INCREMENT", payload: 1 })
+                            }
                         >
-                            Increment
+                            + 1
+                        </RippleButton>
+                        <RippleButton
+                            className="increment"
+                            onClick={() =>
+                                dispatch({ type: "INCREMENT", payload: 5 })
+                            }
+                        >
+                            + 5
                         </RippleButton>
                     </div>
                 </div>
