@@ -42,3 +42,7 @@
     position: relative;
     z-index: 2;
 }
+
+button.ripple-button:disabled {
+    background-color: rgb(144, 144, 144);
+}

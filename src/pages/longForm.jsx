@@ -1,46 +1,78 @@
 import React, { useReducer, useState } from "react";
 import RippleButton from "../component/rippleButton";
+import { initialState, reducer } from "../state/formReducer";
 import "./form.css";
 
 const longForm = () => {
-    const initialState = 0;
-
-    const reducer = (state, action) => {
-        if (action.type === "DECREMENT") {
-            return state - 1;
-        } else if (action.type === "INCREMENT") {
-            return state + 1;
-        }
-    };
-
     const [state, dispatch] = useReducer(reducer, initialState);
-
+    // console.log(state.counter);
     // const [counter, setCounter] = useState(0);
     return (
         <div className="form--container">
             <form
                 className="form--long"
-                // onSubmit={(e) => {
-                //     e.reset();
-                //     e.preventDefault();
-                // }}
+                // onSubmit={}
+                onSubmit={(e) => {
+                    // e.reset();
+                    e.preventDefault();
+                    console.log(state);
+                }}
             >
                 <div className="row">
                     <label>
                         First Name <br />
-                        <input type="text" name="firstName" id="firstName" />
+                        <input
+                            type="text"
+                            name="firstName"
+                            id="firstName"
+                            onBlur={(e) =>
+                                dispatch({
+                                    type: "INPUT",
+                                    payload: {
+                                        name: e.target.name,
+                                        value: e.target.value,
+                                    },
+                                })
+                            }
+                        />
                     </label>
                     {/* <br /> */}
                     <label className="block">
                         Last Name <br />
-                        <input type="text" name="lastName" id="lastName" />
+                        <input
+                            type="text"
+                            name="lastName"
+                            id="lastName"
+                            onBlur={(e) =>
+                                dispatch({
+                                    type: "INPUT",
+                                    payload: {
+                                        name: e.target.name,
+                                        value: e.target.value,
+                                    },
+                                })
+                            }
+                        />
                     </label>
                 </div>
                 {/* <br /> */}
                 <div className="row">
                     <label>
                         Email <br />
-                        <input type="email" name="email" id="email" />
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            onBlur={(e) =>
+                                dispatch({
+                                    type: "INPUT",
+                                    payload: {
+                                        name: e.target.name,
+                                        value: e.target.value,
+                                    },
+                                })
+                            }
+                        />
                     </label>{" "}
                     {/* <br /> */}
                     <div className="gender">
@@ -48,17 +80,59 @@ const longForm = () => {
                         <br />
                         <div className="gender-options">
                             <label className="checkmark__container">
-                                <input type="radio" name="gender" id="male" />
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="male"
+                                    id="male"
+                                    onClick={(e) =>
+                                        dispatch({
+                                            type: "INPUT",
+                                            payload: {
+                                                name: e.target.name,
+                                                value: e.target.value,
+                                            },
+                                        })
+                                    }
+                                />
                                 <span className="checkmark"></span>
                                 Male
                             </label>
                             <label className="checkmark__container">
-                                <input type="radio" name="gender" id="female" />
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="female"
+                                    id="female"
+                                    onClick={(e) =>
+                                        dispatch({
+                                            type: "INPUT",
+                                            payload: {
+                                                name: e.target.name,
+                                                value: e.target.value,
+                                            },
+                                        })
+                                    }
+                                />
                                 <span className="checkmark"></span>
                                 Female
                             </label>
                             <label className="checkmark__container">
-                                <input type="radio" name="gender" id="others" />
+                                <input
+                                    type="radio"
+                                    name="gender"
+                                    value="others"
+                                    id="others"
+                                    onClick={(e) =>
+                                        dispatch({
+                                            type: "INPUT",
+                                            payload: {
+                                                name: e.target.name,
+                                                value: e.target.value,
+                                            },
+                                        })
+                                    }
+                                />
                                 <span className="checkmark"></span>
                                 Others
                             </label>
@@ -69,13 +143,27 @@ const longForm = () => {
                     <label>
                         Education <br />
                         <div className="select__container">
-                            <select name="" id="edu-select">
-                                <div className="option__container">
-                                    <option value="ssc">SSC</option>
-                                    <option value="hsc">HSC</option>
-                                </div>
+                            <select
+                                name="education"
+                                id="edu-select"
+                                onClick={(e) =>
+                                    dispatch({
+                                        type: "INPUT",
+                                        payload: {
+                                            name: e.target.name,
+                                            value: e.target.value,
+                                        },
+                                    })
+                                }
+                            >
+                                <option value="SSC">SSC</option>
+                                <option value="HSC">HSC</option>
+                                <option value="UnderGrad">
+                                    Under Graduate
+                                </option>
+                                <option value="Graduate">Graduate</option>
                             </select>
-                            <span class="focus"></span>
+                            <span className="focus"></span>
                         </div>
                     </label>
                     {/* <br /> */}
@@ -84,20 +172,26 @@ const longForm = () => {
                         <div className="counter">
                             <RippleButton
                                 className="decrement"
-                                onClick={(e) => {
-                                    dispatch({ type: "DECREMENT" });
-                                    e.preventDefault();
-                                }}
+                                // onClick={(e) => dispatch({ type: "DECREMENT" })}
+                                onClick={(e) =>
+                                    dispatch({
+                                        type: "COUNTER",
+                                        payload: { value: -1 },
+                                    })
+                                }
                             >
                                 -
                             </RippleButton>
-                            <span className="pc-count">{state}</span>
+                            <span className="pc-count">{state.counter}</span>
                             <RippleButton
                                 className="increment"
-                                onClick={(e) => {
-                                    dispatch({ type: "INCREMENT" });
-                                    e.preventDefault();
-                                }}
+                                // onClick={(e) => dispatch({ type: "INCREMENT" })}
+                                onClick={(e) =>
+                                    dispatch({
+                                        type: "COUNTER",
+                                        payload: { value: 1 },
+                                    })
+                                }
                             >
                                 +
                             </RippleButton>
@@ -107,94 +201,40 @@ const longForm = () => {
                 <div className="row">
                     <label className="feedback">
                         Feedback <br />
-                        <textarea></textarea>
+                        <textarea
+                            name="feedback"
+                            onBlur={(e) =>
+                                dispatch({
+                                    type: "INPUT",
+                                    payload: {
+                                        name: e.target.name,
+                                        value: e.target.value,
+                                    },
+                                })
+                            }
+                        ></textarea>
                     </label>
                 </div>
                 <div className="row row--last">
-                    <label class="checkbox__container">
-                        <input type="checkbox" /> I agree to terms and
-                        conditions
-                        <span class="checkbox"></span>
+                    <label className="checkbox__container">
+                        <input
+                            type="checkbox"
+                            onClick={(e) => dispatch({ type: "TOGGLE" })}
+                        />{" "}
+                        I agree to terms and conditions
+                        <span className="checkbox"></span>
                     </label>{" "}
                     <br />
                     <div className="btn__container">
-                        <RippleButton className="submit">Submit</RippleButton>
-                    </div>
-                </div>
-                {/* <div className="col"> */}
-                {/* <label>
-                        First Name <br />
-                        <input type="text" name="firstName" id="firstName" />
-                    </label>
-                    <br />
-                    <label>
-                        Email <br />
-                        <input type="email" name="email" id="email" />
-                    </label>
-                    <br />
-                    <label>
-                        Education <br />
-                        <div className="select__container">
-                            <select name="" id="edu-select">
-                                <option value="ssc">SSC</option>
-                                <option value="hsc">HSC</option>
-                            </select>
-                            <span class="focus"></span>
-                        </div>
-                    </label>
-                    <label>
-                        Feedback <br />
-                        <textarea></textarea>
-                    </label>
-                </div>
-                <div className="col">
-                    <label for="lastName">
-                        Last Name <br />
-                        <input type="text" name="lastName" id="lastName" />
-                    </label>
-                    <br />
-                    <label>Gender</label>
-                    <br />
-                    <div className="gender-options">
-                        <label className="checkmark__container">
-                            <input type="radio" name="gender" id="male" />
-                            <span className="checkmark"></span>
-                            Male
-                        </label>
-                        <label className="checkmark__container">
-                            <input type="radio" name="gender" id="female" />
-                            <span className="checkmark"></span>
-                            Female
-                        </label>
-                        <label className="checkmark__container">
-                            <input type="radio" name="gender" id="others" />
-                            <span className="checkmark"></span>
-                            Others
-                        </label>
-                    </div>
-                    <label for="">Number of PCs</label> <br />
-                    <div className="counter">
                         <RippleButton
-                            className="decrement"
-                            onClick={(e) => {
-                                dispatch({ type: "DECREMENT" });
-                                e.preventDefault();
-                            }}
+                            className="submit"
+                            type="submit"
+                            disabled={!state.term}
                         >
-                            -
-                        </RippleButton>
-                        <span className="pc-count">{state}</span>
-                        <RippleButton
-                            className="increment"
-                            onClick={(e) => {
-                                dispatch({ type: "INCREMENT" });
-                                e.preventDefault();
-                            }}
-                        >
-                            +
+                            Submit
                         </RippleButton>
                     </div>
-                </div> */}
+                </div>
             </form>
         </div>
     );

@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
-import Parent from "./pages/parent";
+// import Parent from "./pages/parent";
 import LongForm from "./pages/longForm";
-import ShortForm from "./pages/shortForm";
-import Counter from "./pages/counter";
+// import ShortForm from "./pages/shortForm";
+// import Counter from "./pages/counter";
 import "./App.css";
 
 export const COUNTER_CONTEXT = createContext();
