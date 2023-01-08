@@ -3,14 +3,25 @@ import RippleButton from "../component/rippleButton";
 import "./counter.css";
 
 const counter = () => {
-    const initialState = 0;
+    const initialState = {
+        value: 0,
+    };
 
     const reducer = (state, action) => {
-        if (action.type === "DECREMENT") {
-            return state - action.payload;
-        } else if (action.type === "INCREMENT") {
-            return state + action.payload;
+        switch (action.type) {
+            case "COUNTER":
+                return {
+                    ...state,
+                    value: state.value + action.payload.value,
+                };
+            default:
+                return state;
         }
+        // if (action.type === "DECREMENT") {
+        //     return state - action.payload;
+        // } else if (action.type === "INCREMENT") {
+        //     return state + action.payload;
+        // }
     };
 
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -19,15 +30,15 @@ const counter = () => {
         <div className="box">
             <div className="container">
                 {/* <p className="title">Child</p> */}
-                <h2>{state}</h2>
+                <h2>{state.value}</h2>
                 <div>
                     <div>
                         <RippleButton
                             className="decrement"
                             onClick={() =>
                                 dispatch({
-                                    type: "DECREMENT",
-                                    payload: 1,
+                                    type: "COUNTER",
+                                    payload: { name: "DECREMENT", value: -1 },
                                 })
                             }
                         >
@@ -36,7 +47,10 @@ const counter = () => {
                         <RippleButton
                             className="decrement"
                             onClick={() =>
-                                dispatch({ type: "DECREMENT", payload: 5 })
+                                dispatch({
+                                    type: "COUNTER",
+                                    payload: { name: "DECREMENT", value: -5 },
+                                })
                             }
                         >
                             - 5
@@ -44,7 +58,10 @@ const counter = () => {
                         <RippleButton
                             className="increment"
                             onClick={() =>
-                                dispatch({ type: "INCREMENT", payload: 1 })
+                                dispatch({
+                                    type: "COUNTER",
+                                    payload: { name: "INCREMENT", value: 1 },
+                                })
                             }
                         >
                             + 1
@@ -52,7 +69,10 @@ const counter = () => {
                         <RippleButton
                             className="increment"
                             onClick={() =>
-                                dispatch({ type: "INCREMENT", payload: 5 })
+                                dispatch({
+                                    type: "COUNTER",
+                                    payload: { name: "INCREMENT", value: 5 },
+                                })
                             }
                         >
                             + 5
